@@ -1,3 +1,9 @@
+# Credenciais sensíveis — NUNCA enviar ao GitHub!
+service_account.json
+*.json.secret
+*.pem
+*.key
+
 # PyInstaller
 dist/
 build/
