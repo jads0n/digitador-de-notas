@@ -58,10 +58,15 @@ jobs:
         run: |
           pyinstaller digitador-off.spec --clean --noconfirm
 
-      # 6. Lista o conteúdo da pasta dist (para debug)
-      - name: 📋 Verificar arquivos gerados
-        run: |
-          ls -la dist/
+      # 6. Lista o conteúdo da pasta dist (para debug) — macOS
+      - name: 📋 Verificar arquivos gerados (macOS)
+        if: runner.os == 'macOS'
+        run: ls -la dist/
+
+      # 6b. Lista o conteúdo da pasta dist (para debug) — Windows
+      - name: 📋 Verificar arquivos gerados (Windows)
+        if: runner.os == 'Windows'
+        run: dir dist\
 
       # 7. Faz upload do executável como artifact do GitHub Actions
       - name: 📤 Upload do executável
